@@ -1,0 +1,90 @@
+{% include "header.html" %}
+
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('{{post.img_url}}')">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="post-heading">
+          <h1>{{ post.title }}</h1>
+          <h2 class="subheading">{{ post.subtitle }}</h2>
+          <span class="meta">
+            Posted by
+            <a href="#">{{ post.author.name }}</a>
+            on {{ post.date }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Post Content -->
+<article>
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+
+        <!-- Blog Body -->
+        {{ post.body|safe }}
+
+        <!-- Edit Button -->
+        <div class="d-flex justify-content-end mb-4">
+          <a class="btn btn-primary float-right"
+             href="{{url_for('edit_post', post_id=post.id)}}">
+            Edit Post
+          </a>
+        </div>
+
+        <!-- ================= COMMENTS SECTION ================= -->
+        <div class="comment mt-5">
+
+          <!-- Add Comment Form -->
+          <form method="POST">
+            <textarea name="comment"
+                      class="form-control mb-3"
+                      placeholder="Write a comment..."
+                      required></textarea>
+
+            <button type="submit" class="btn btn-primary">
+              Post Comment
+            </button>
+          </form>
+
+          <hr>
+
+          <!-- Show All Comments -->
+          <ul class="commentList list-unstyled">
+
+            {% for comment in post.comments %}
+            <li class="mb-4 d-flex">
+
+              <!-- Profile Image -->
+              <div class="commenterImage me-3">
+                <img src="../static/assets/img/default-profile.jpg"
+                     width="40"
+                     class="rounded-circle"/>
+              </div>
+
+              <!-- Comment Content -->
+              <div class="commentText">
+                <p class="mb-1">{{ comment.text }}</p>
+                <span class="date sub-text text-muted">
+                  {{ comment.author.name }}
+                </span>
+              </div>
+
+            </li>
+            {% endfor %}
+
+          </ul>
+
+        </div>
+        <!-- ================= END COMMENTS ================= -->
+
+      </div>
+    </div>
+  </div>
+</article>
+
+{% include "footer.html" %}
