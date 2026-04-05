@@ -45,7 +45,7 @@ This project demonstrates backend development, authentication, database manageme
 
 ![20260405-0526-00 6501619](https://github.com/user-attachments/assets/888d4b1a-7728-448f-855d-9143fa2d30e8)
 
-> 📌 Place your images and GIFs inside an `assets/` folder in your project directory.
+> Tip :- Place your images and GIFs inside an `assets/` folder in your project directory.
 
 ---
 
