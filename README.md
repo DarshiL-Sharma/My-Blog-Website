@@ -166,6 +166,7 @@ project/
 ```bash
 git clone https://github.com/DarshiL-Sharma/flask-blog.git```
 
+```
 ### 2️⃣ Navigate to Project
 
 ```bash
@@ -189,7 +190,6 @@ python main.py
 ```
 http://127.0.0.1:5002/
 ```
-
 ---
 
 ## 🔮 Future Improvements
